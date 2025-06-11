@@ -21,6 +21,9 @@ jobs:
           - examples/v8-managed-react
           - examples/v8-simple-react
           - examples/v8-vite5-prod
+          - examples/v9-managed-react
+          - examples/v9-simple-react
+          - examples/v9-vite5-prod
 
     steps:
       - uses: actions/checkout@v3
