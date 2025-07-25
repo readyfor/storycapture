@@ -1,6 +1,6 @@
 {
   "name": "storycapture",
-  "version": "5.0.1",
+  "version": "9.0.0",
   "description": "A Storybook addon, Save the screenshot image of your stories! via puppeteer.",
   "engines": {
     "node": ">=18"
