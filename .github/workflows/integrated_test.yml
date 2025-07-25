@@ -17,7 +17,7 @@ jobs:
         example_dir:
           - examples/v9-managed-react
           - examples/v9-simple-react
-          - examples/v9-vite5-prod
+          - examples/v9-managed-vite5-react
 
     steps:
       - uses: actions/checkout@v4
