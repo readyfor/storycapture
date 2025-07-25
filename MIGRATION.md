@@ -2,7 +2,7 @@
 
 <!-- toc -->
 
-- [From storybook-chrome-screenshot 1.x to storycap](#from-storybook-chrome-screenshot-1x-to-storycap)
+- [From storybook-chrome-screenshot 1.x to storycapture](#from-storybook-chrome-screenshot-1x-to-storycapture)
   - [Replace dependency](#replace-dependency)
   - [Replace decorators](#replace-decorators)
   - [Move global options from `setScreentshotOptions` to `withScreenshot`](#move-global-options-from-setscreentshotoptions-to-withscreenshot)
@@ -10,20 +10,20 @@
   - [CLI usage](#cli-usage)
   - [CLI options](#cli-options)
   - [Other deprecated features](#other-deprecated-features)
-- [From zisui 1.x to storycap](#from-zisui-1x-to-storycap)
+- [From zisui 1.x to storycapture](#from-zisui-1x-to-storycapture)
   - [Replace dependency](#replace-dependency-1)
   - [Simple mode](#simple-mode)
   - [Managed mode for React](#managed-mode-for-react)
 
 <!-- tocstop -->
 
-## From storybook-chrome-screenshot 1.x to storycap
+## From storybook-chrome-screenshot 1.x to storycapture
 
 ### Replace dependency
 
 ```sh
 $ npm uninstall storybook-chrome-screenshot
-$ npm install storycap
+$ npm install storycapture
 ```
 
 And edit SB addons installation:
@@ -32,7 +32,7 @@ And edit SB addons installation:
 /* .storybook/addons.js */
 
 //import 'storybook-chrome-screenshot/register';
-import 'storycap/register';
+import 'storycapture/register';
 ```
 
 ### Replace decorators
@@ -59,7 +59,7 @@ addDecorator(
 /* .storybook/config.js */
 
 import { addDecorator } from '@storybook/react';
-import { withScreenshot } from 'storycap';
+import { withScreenshot } from 'storycapture';
 
 addDecorator(
   withScreenshot({
@@ -74,7 +74,7 @@ You should replace import path if you configure screenshot behavior in each stor
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 // import { withScreenshot } from 'storybook-chrome-screenshot';
-import { withScreenshot } from 'storycap'; // <-
+import { withScreenshot } from 'storycapture'; // <-
 import { Button } from './Button';
 
 storiesOf('Button', module)
@@ -104,7 +104,7 @@ setScreenshotOptions({
 /* After */
 /* .storybook/config.js */
 import { addDecorator } from '@storybook/react';
-import { withScreenshot } from 'storycap';
+import { withScreenshot } from 'storycapture';
 
 addDecorator(
   withScreenshot({
@@ -127,7 +127,7 @@ Some fields of the argument of `withScreenshot` are deprecated.
 
 ### CLI usage
 
-storycap CLI accepts only Storybook's URL and you can boot local Storybook server with `--serverCmd` option.
+storycapture CLI accepts only Storybook's URL and you can boot local Storybook server with `--serverCmd` option.
 
 ```sh
 # Before
@@ -136,7 +136,7 @@ $ storybook-chrome-screenshot -p 8080 -h localhost -s ./public
 
 ```sh
 # After
-$ storycap http://localhost:8080 --serverCmd "start-storybook -p 8080 -h localhost -s ./public"
+$ storycapture http://localhost:8080 --serverCmd "start-storybook -p 8080 -h localhost -s ./public"
 ```
 
 ### CLI options
@@ -150,13 +150,13 @@ Some CLI options of storybook-chrome-screenshot are deprecated.
 
 We dropped supporting knobs. You can write story with corresponding properties if you want to capture overwriting stories' props.
 
-## From zisui 1.x to storycap
+## From zisui 1.x to storycapture
 
 ### Replace dependency
 
 ```sh
 $ npm uninstall zisui
-$ npm install storycap
+$ npm install storycapture
 ```
 
 ### Simple mode
@@ -172,10 +172,10 @@ $ zisui http://your.storybook.com
 ```sh
 # After
 
-$ storycap http://your.storybook.com
+$ storycapture http://your.storybook.com
 ```
 
-All CLI options of _zisui_ are available with Storycap.
+All CLI options of _zisui_ are available with Storycapture.
 
 ### Managed mode for React
 
@@ -192,7 +192,7 @@ You should replace it:
 ```js
 /* .storybook/addons.js */
 
-import 'storycap/register';
+import 'storycapture/register';
 ```
 
 And you should edit `.storybook/config.js`:
@@ -214,20 +214,20 @@ You should replace it as the following:
 /* .storybook/config.js */
 
 import { addDecorator } from '@storybook/react';
-import { withScreenshot } from 'storycap';
+import { withScreenshot } from 'storycapture';
 
 addDecorator(withScreenshot({
   // Some screenshot options...
 });
 ```
 
-**Remarks**: Storycap accepts [Storybook's global parameters notation](https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#options-addon-deprecated), so `addParameters` is recommended if you use Storybook v5.0 or later:
+**Remarks**: Storycapture accepts [Storybook's global parameters notation](https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#options-addon-deprecated), so `addParameters` is recommended if you use Storybook v5.0 or later:
 
 ```js
 /* .storybook/config.js */
 
 import { addDecorator, addParameters } from '@storybook/react';
-import { withScreenshot } from 'storycap';
+import { withScreenshot } from 'storycapture';
 
 addDecorator(withScreenshot);
 addParameters({

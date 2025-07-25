@@ -1,8 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "paths": {
-      "storycrawler": ["./storycrawler/src/index.ts"]
-    }
-  }
-}

@@ -1,16 +1,15 @@
 {
-  "name": "storycap-root",
+  "name": "storycapture-root",
   "private": true,
   "scripts": {
     "clean": "lerna run clean",
     "bootstrap": "lerna bootstrap",
     "doc:clihelp": "node scripts/cli-help.js",
     "doc:toc": "node scripts/add-toc.js",
-    "doc": "yarn doc:clihelp && yarn doc:toc && prettier --write \"*.md\" \"packages/*/*.md\" --loglevel warn",
+    "doc": "yarn doc:clihelp && yarn doc:toc && prettier --write \"*.md\" --loglevel warn",
     "typedoc:build": "lerna run typedoc",
-    "copy:misc:storycrawler": "cpy LICENSE packages/storycrawler",
-    "copy:misc:storycap": "cpy README.md CONTRIBUTING.md MIGRATION.md LICENSE packages/storycap",
-    "copy:misc": "yarn copy:misc:storycrawler && yarn copy:misc:storycap",
+    "copy:misc": "yarn copy:misc:storycapture",
+    "copy:misc:storycapture": "cpy README.md CONTRIBUTING.md MIGRATION.md LICENSE packages/storycapture",
     "build": "lerna run build && yarn doc && yarn copy:misc",
     "build:pages": "yarn typedoc:build",
     "format": "prettier --write \"packages/**/src/**/*\" \"packages/**/samples/**/*.ts\" \"scripts/**/*\" \"*.md\" \"packages/*/*.md\"",
@@ -27,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reg-viz/storycap.git"
+    "url": "git+https://github.com/huuyafwww/storycapture.git"
   },
   "author": "tsuyoshiwada",
   "contributors": [
@@ -35,9 +34,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/reg-viz/storycap/issues"
+    "url": "https://github.com/huuyafwww/storycapture/issues"
   },
-  "homepage": "https://github.com/reg-viz/storycap#readme",
+  "homepage": "https://github.com/huuyafwww/storycapture#readme",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "8.19.1",
     "@typescript-eslint/parser": "8.19.1",
