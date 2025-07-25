@@ -8,6 +8,7 @@
     "doc:toc": "node scripts/add-toc.js",
     "doc": "yarn doc:clihelp && yarn doc:toc && prettier --write \"*.md\" --loglevel warn",
     "typedoc:build": "lerna run typedoc",
+    "copy:misc": "yarn copy:misc:storycapture",
     "copy:misc:storycapture": "cpy README.md CONTRIBUTING.md MIGRATION.md LICENSE packages/storycapture",
     "build": "lerna run build && yarn doc && yarn copy:misc",
     "build:pages": "yarn typedoc:build",
