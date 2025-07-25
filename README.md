@@ -3,6 +3,9 @@
 [storybook]: https://github.com/storybooks/storybook
 [puppeteer]: https://github.com/GoogleChrome/puppeteer
 
+This package was created to support v9 of storybook with [storycap](https://github.com/reg-viz/storycap).
+Special thanks to the author of the [storycap](https://github.com/reg-viz/storycap).
+
 [![npm](https://img.shields.io/npm/v/storycapture.svg?style=flat-square)](https://www.npmjs.com/package/storycapture)
 
 > A [Storybook][storybook] Addon, Save the screenshot image of your stories :camera: via [Puppeteer][puppeteer].
