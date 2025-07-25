@@ -11,7 +11,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build-storybook": "storybook build --test",
     "prestorybook": "../../scripts/e2e-prestorybook.js .",
     "prebuild-storybook": "../../scripts/e2e-prestorybook.js .",
     "storycap:all": "yarn build-storybook && storycap --verbose --server-timeout 100000 --server-cmd \"http-server -p 9009 storybook-static\" \"http://127.0.0.1:9009\""
