@@ -1,5 +1,5 @@
 {
-  "name": "storycap",
+  "name": "storycapture",
   "version": "5.0.1",
   "description": "A Storybook addon, Save the screenshot image of your stories! via puppeteer.",
   "engines": {
@@ -23,7 +23,7 @@
   ],
   "typings": "lib/index.d.ts",
   "bin": {
-    "storycap": "lib/node/cli.js"
+    "storycapture": "lib/node/cli.js"
   },
   "scripts": {
     "clean": "rimraf -g lib lib-esm \"*.tsbuildinfo\"",
@@ -32,11 +32,11 @@
     "build:esm": "tsc --p tsconfig.build.esm.json",
     "prepare": "yarn clean && yarn build",
     "test": "jest",
-    "typedoc": "typedoc --out \"../../dist-pages/typedoc/storycap\" --ignoreCompilerErrors --tsconfig tsconfig.build.json src"
+    "typedoc": "typedoc --out \"../../dist-pages/typedoc/storycapture\" --ignoreCompilerErrors --tsconfig tsconfig.build.json src"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reg-viz/storycap.git"
+    "url": "git+https://github.com/huuyafwww/storycapture.git"
   },
   "author": "tsuyoshiwada",
   "contributors": [
@@ -44,9 +44,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/reg-viz/storycap/issues"
+    "url": "https://github.com/huuyafwww/storycapture/issues"
   },
-  "homepage": "https://github.com/reg-viz/storycap#readme",
+  "homepage": "https://github.com/huuyafwww/storycapture#readme",
   "files": [
     "lib",
     "lib-esm",

@@ -4,7 +4,7 @@ import { StorybookConnectionOptions, BaseBrowserOptions, ChromeChannel } from 's
 
 /**
  *
- * Represents Storycap mode.
+ * Represents Storycapture mode.
  *
  **/
 export type RunMode = 'simple' | 'managed';

@@ -12,14 +12,14 @@ type ExposedFns = {
   [P in keyof Exposed]: (...args: Args<Exposed[P]>) => Promise<Return<Exposed[P]>>;
 };
 
-type StorycapWindow = typeof window & {
+type StorycaptureWindow = typeof window & {
   requestIdleCallback(cb: Function, opt?: { timeout: number }): void;
   optionStore?: { [storyKey: string]: ScreenshotOptions[] };
 } & ExposedFns;
 
-function withExpoesdWindow(cb: (win: StorycapWindow) => any) {
+function withExpoesdWindow(cb: (win: StorycaptureWindow) => any) {
   if (typeof 'window' === 'undefined') return;
-  const win = window as StorycapWindow;
+  const win = window as StorycaptureWindow;
   if (!win.emitCapture) return;
   return cb(win);
 }
@@ -56,18 +56,18 @@ function waitUserFunction(waitFor: undefined | null | string | (() => Promise<an
   }
 }
 
-function waitForNextIdle(win: StorycapWindow) {
+function waitForNextIdle(win: StorycaptureWindow) {
   return new Promise(res => win.requestIdleCallback(res, { timeout: 3000 }));
 }
 
-function pushOptions(win: StorycapWindow, storyKey: string | undefined, opt: Partial<ScreenshotOptions>) {
+function pushOptions(win: StorycaptureWindow, storyKey: string | undefined, opt: Partial<ScreenshotOptions>) {
   if (!storyKey) return;
   if (!win.optionStore) win.optionStore = {};
   if (!win.optionStore[storyKey]) win.optionStore[storyKey] = [];
   win.optionStore[storyKey].push(opt);
 }
 
-function consumeOptions(win: StorycapWindow, storyKey: string): ScreenshotOptions[] | null {
+function consumeOptions(win: StorycaptureWindow, storyKey: string): ScreenshotOptions[] | null {
   if (!win.optionStore) return null;
   if (!win.optionStore[storyKey]) return null;
   const result = win.optionStore[storyKey];

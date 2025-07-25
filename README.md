@@ -1,15 +1,13 @@
-# Storycap
+# Storycapture
 
 [storybook]: https://github.com/storybooks/storybook
 [puppeteer]: https://github.com/GoogleChrome/puppeteer
 
-![DEMO](https://raw.githubusercontent.com/reg-viz/storycap/artwork/demo_v2.gif)
-
-[![npm](https://img.shields.io/npm/v/storycap.svg?style=flat-square)](https://www.npmjs.com/package/storycap)
+[![npm](https://img.shields.io/npm/v/storycapture.svg?style=flat-square)](https://www.npmjs.com/package/storycapture)
 
 > A [Storybook][storybook] Addon, Save the screenshot image of your stories :camera: via [Puppeteer][puppeteer].
 
-Storycap crawls your Storybook and takes screenshot images.
+Storycapture crawls your Storybook and takes screenshot images.
 It is primarily responsible for image generation necessary for Visual Testing such as [reg-suit](https://github.com/reg-viz/reg-suit).
 
 <!-- toc -->
@@ -20,7 +18,7 @@ It is primarily responsible for image generation necessary for Visual Testing su
   - [Managed mode](#managed-mode)
     - [Setup Storybook](#setup-storybook)
     - [Setup your stories(optional)](#setup-your-storiesoptional)
-    - [Run `storycap` Command](#run-storycap-command)
+    - [Run `storycapture` Command](#run-storycapture-command)
 - [API](#api)
   - [`withScreenshot`](#withscreenshot)
   - [type `ScreenshotOptions`](#type-screenshotoptions)
@@ -58,44 +56,44 @@ It is primarily responsible for image generation necessary for Visual Testing su
 ## Install
 
 ```sh
-$ npm install storycap
+$ npm install storycapture
 ```
 
 Or
 
 ```sh
-$ npm install storycap puppeteer
+$ npm install storycapture puppeteer
 ```
 
 Installing puppeteer is optional. See [Chromium version](#chromium-version) to get more detail.
 
 ## Getting Started
 
-Storycap runs with 2 modes. One is "simple" and another is "managed".
+Storycapture runs with 2 modes. One is "simple" and another is "managed".
 
 With the simple mode, you don't need to configure your Storybook. All you need is give Storybook's URL, such as:
 
 ```sh
-$ npx storycap http://localhost:9001
+$ npx storycapture http://localhost:9001
 ```
 
 You can launch your server via `--serverCmd` option.
 
 ```sh
-$ storycap --serverCmd "start-storybook -p 9001" http://localhost:9001
+$ storycapture --serverCmd "start-storybook -p 9001" http://localhost:9001
 ```
 
 Of course, you can use pre-built Storybook:
 
 ```sh
 $ build-storybook -o dist-storybook
-$ storycap --serverCmd "npx http-server dist-storybook -p 9001" http://localhost:9001
+$ storycapture --serverCmd "npx http-server dist-storybook -p 9001" http://localhost:9001
 ```
 
-Also, Storycap can crawls built and hosted Storybook pages:
+Also, Storycapture can crawls built and hosted Storybook pages:
 
 ```sh
-$ storycap https://next--storybookjs.netlify.app/vue-kitchen-sink/
+$ storycapture https://next--storybookjs.netlify.app/vue-kitchen-sink/
 ```
 
 ### Managed mode
@@ -104,7 +102,7 @@ $ storycap https://next--storybookjs.netlify.app/vue-kitchen-sink/
 
 If you want to control how stories are captured (timing or size or etc...), use managed mode.
 
-First, add `storycap` to your Storybook config file:
+First, add `storycapture` to your Storybook config file:
 
 ```js
 /* .storybook/main.js */
@@ -114,17 +112,17 @@ module.exports = {
   addons: [
     '@storybook/addon-actions',
     '@storybook/addon-links',
-    'storycap', // <-- Add storycap
+    'storycapture', // <-- Add storycapture
   ],
 };
 ```
 
-Next, use `withScreenshot` decorator to tell how Storycap captures your stories.
+Next, use `withScreenshot` decorator to tell how Storycapture captures your stories.
 
 ```js
 /* .storybook/preview.js */
 
-import { withScreenshot } from 'storycap';
+import { withScreenshot } from 'storycapture';
 
 export const decorators = [
   withScreenshot, // Registration the decorator is required
@@ -173,24 +171,24 @@ export const Small = {
 };
 ```
 
-#### Run `storycap` Command
+#### Run `storycapture` Command
 
 ```sh
 $ npx start-storybook -p 9009
-$ npx storycap http://localhost:9009
+$ npx storycapture http://localhost:9009
 ```
 
 Or you can exec with one-liner via `--serverCmd` option:
 
 ```sh
-$ npx storycap http://localhost:9009 --serverCmd "start-storybook -p 9009"
+$ npx storycapture http://localhost:9009 --serverCmd "start-storybook -p 9009"
 ```
 
 ## API
 
 ### `withScreenshot`
 
-A Storybook decorator to notify Storycap to captures stories.
+A Storybook decorator to notify Storycapture to captures stories.
 
 ### type `ScreenshotOptions`
 
@@ -217,19 +215,19 @@ interface ScreenshotOptions {
 ```
 
 - `delay`: Waiting time [msec] before capturing.
-- `waitAssets`: If set true, Storycap waits until all resources requested by the story, such as `<img>` or CSS background images, are finished.
-- `waitFor` : If you set a function to return `Promise`, Storycap waits the promise is resolved. You can also set a name of global function that returns `Promise`.
-- `fullPage`: If set true, Storycap captures the entire page of stories.
-- `focus`: If set a valid CSS selector string, Storycap captures after focusing the element matched by the selector.
-- `hover`: If set a valid CSS selector string, Storycap captures after hovering the element matched by the selector.
-- `click`: If set a valid CSS selector string, Storycap captures after clicking the element matched by the selector.
-- `skip`: If set true, Storycap cancels capturing corresponding stories.
+- `waitAssets`: If set true, Storycapture waits until all resources requested by the story, such as `<img>` or CSS background images, are finished.
+- `waitFor` : If you set a function to return `Promise`, Storycapture waits the promise is resolved. You can also set a name of global function that returns `Promise`.
+- `fullPage`: If set true, Storycapture captures the entire page of stories.
+- `focus`: If set a valid CSS selector string, Storycapture captures after focusing the element matched by the selector.
+- `hover`: If set a valid CSS selector string, Storycapture captures after hovering the element matched by the selector.
+- `click`: If set a valid CSS selector string, Storycapture captures after clicking the element matched by the selector.
+- `skip`: If set true, Storycapture cancels capturing corresponding stories.
 - `viewport`, `viewports`: See type `Viewport` section below.
 - `variants`: See type `Variants` section below.
-- `waitImages`: Deprecated. Use `waitAssets`. If set true, Storycap waits until `<img>` in the story are loaded.
-- `omitBackground`: If set true, Storycap omits the background of the page allowing for transparent screenshots. Note the storybook theme will need to be transparent as well.
-- `captureBeyondViewport`: If set true, Storycap captures screenshot beyond the viewport. See also [Puppeteer API docs](https://github.com/puppeteer/puppeteer/blob/v13.1.3/docs/api.md#pagescreenshotoptions).
-- `clip`: If set, Storycap captures only the portion of the screen bounded by x/y/width/height.
+- `waitImages`: Deprecated. Use `waitAssets`. If set true, Storycapture waits until `<img>` in the story are loaded.
+- `omitBackground`: If set true, Storycapture omits the background of the page allowing for transparent screenshots. Note the storybook theme will need to be transparent as well.
+- `captureBeyondViewport`: If set true, Storycapture captures screenshot beyond the viewport. See also [Puppeteer API docs](https://github.com/puppeteer/puppeteer/blob/v13.1.3/docs/api.md#pagescreenshotoptions).
+- `clip`: If set, Storycapture captures only the portion of the screen bounded by x/y/width/height.
 
 ### type `Variants`
 
@@ -307,14 +305,14 @@ addParameters({
 function isScreenshot(): boolean;
 ```
 
-Returns whether current process runs in Storycap browser. It's useful to change your stories' behavior only in Storycap (e.g. disable JavaScript animation).
+Returns whether current process runs in Storycapture browser. It's useful to change your stories' behavior only in Storycapture (e.g. disable JavaScript animation).
 
 ## Command Line Options
 
 <!-- inject:clihelp -->
 
 ```txt
-usage: storycap [options] storybook_url
+usage: storycapture [options] storybook_url
 
 Options:
       --help                       Show help                                                                   [boolean]
@@ -351,11 +349,11 @@ Options:
                [string] [default: "{ "args": ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"] }"]
 
 Examples:
-  storycap http://localhost:9009
-  storycap http://localhost:9009 -V 1024x768 -V 320x568
-  storycap http://localhost:9009 -i "some-kind/a-story"
-  storycap http://example.com/your-storybook -e "**/default" -V iPad
-  storycap --serverCmd "start-storybook -p 3000" http://localhost:3000
+  storycapture http://localhost:9009
+  storycapture http://localhost:9009 -V 1024x768 -V 320x568
+  storycapture http://localhost:9009 -i "some-kind/a-story"
+  storycapture http://example.com/your-storybook -e "**/default" -V iPad
+  storycapture --serverCmd "start-storybook -p 3000" http://localhost:3000
 
 ```
 
@@ -363,7 +361,7 @@ Examples:
 
 ## Multiple PNGs from 1 story
 
-By default, storycap generates 1 screenshot image from 1 story. Use `variants` if you want multiple PNGs(e.g. viewports, element's states variation, etc...) for 1 story.
+By default, storycapture generates 1 screenshot image from 1 story. Use `variants` if you want multiple PNGs(e.g. viewports, element's states variation, etc...) for 1 story.
 
 ### Basic usage
 
@@ -520,7 +518,7 @@ export const MyStory = {
 
 #### Example 2
 
-Another example, the following setting tells storycap to wait for resolving of `fontLoading`:
+Another example, the following setting tells storycapture to wait for resolving of `fontLoading`:
 
 ```html
 <!-- ./storybook/preview-head.html -->
@@ -543,7 +541,7 @@ Another example, the following setting tells storycap to wait for resolving of `
 ```js
 /* .storybook/preview.js */
 
-import { withScreenshot } from 'storycap';
+import { withScreenshot } from 'storycapture';
 
 export const decorators = [withScreenshot];
 
@@ -556,7 +554,7 @@ export const parameters = {
 
 ## Chromium version
 
-Since v3.0.0, Storycap does not use Puppeteer directly. Instead, Storycap searches Chromium binary in the following order:
+Storycapture searches Chromium binary in the following order:
 
 1. Installed Puppeteer package (if you installed explicitly)
 1. Canary Chrome installed locally
@@ -568,7 +566,7 @@ You can change search channel with `--chromiumChannel` option or set executable 
 
 ### Storybook versions
 
-Storycap is tested with the followings versions:
+Storycapture is tested with the followings versions:
 
 - Simple mode:
   - [x] Storybook v9.x
@@ -579,11 +577,11 @@ See also packages in `examples` directory.
 
 ### UI frameworks
 
-Storycap (with both simple and managed mode) is agnostic for specific UI frameworks(e.g. React, Angular, Vue.js, etc...). So you can use it with Storybook with your own favorite framework :smile: .
+Storycapture (with both simple and managed mode) is agnostic for specific UI frameworks(e.g. React, Angular, Vue.js, etc...). So you can use it with Storybook with your own favorite framework :smile: .
 
 ## How it works
 
-Storycap accesses the launched page using [Puppeteer][puppeteer].
+Storycapture accesses the launched page using [Puppeteer][puppeteer].
 
 ## Contributing
 
@@ -591,4 +589,4 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## License
 
-[MIT © reg-viz](./LICENSE)
+[MIT © huuyafwww](./LICENSE)

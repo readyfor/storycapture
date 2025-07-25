@@ -1,4 +1,4 @@
-import { withScreenshot } from 'storycap';
+import { withScreenshot } from 'storycapture';
 
 export const decorators = [
   withScreenshot,

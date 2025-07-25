@@ -1,6 +1,6 @@
 /**
  *
- * @returns Whether current process runs in Storycap browser.
+ * @returns Whether current process runs in Storycapture browser.
  *
  **/
 export function isScreenshot() {

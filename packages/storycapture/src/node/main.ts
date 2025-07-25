@@ -16,7 +16,7 @@ async function detectRunMode(storiesBrowser: StoriesBrowser, opt: MainOptions) {
     () => (window as any).__STORYCAP_MANAGED_MODE_REGISTERED__,
   );
   const mode: RunMode = registered ? 'managed' : 'simple';
-  opt.logger.log(`Storycap runs with ${mode} mode`);
+  opt.logger.log(`Storycapture runs with ${mode} mode`);
   return mode;
 }
 
@@ -37,7 +37,7 @@ function filterStories(flatStories: Story[], include: string[], exclude: string[
 
 /**
  *
- * Run main process of Storycap.
+ * Run main process of Storycapture.
  *
  * @param mainOptions - Parameters for this procedure
  *

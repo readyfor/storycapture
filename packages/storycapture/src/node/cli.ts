@@ -17,7 +17,7 @@ async function createOptions(): Promise<MainOptions> {
     .locale('en')
     .wrap(120)
     .version(require('../../package.json').version)
-    .usage('usage: storycap [options] storybook_url')
+    .usage('usage: storycapture [options] storybook_url')
     .options({
       outDir: { string: true, alias: 'o', default: '__screenshots__', description: 'Output directory.' },
       parallel: { number: true, alias: 'p', default: 4, description: 'Number of browsers to screenshot.' },
@@ -76,11 +76,11 @@ async function createOptions(): Promise<MainOptions> {
         description: 'JSON string of launch config for Puppeteer.',
       },
     })
-    .example('storycap http://localhost:9009', '')
-    .example('storycap http://localhost:9009 -V 1024x768 -V 320x568', '')
-    .example('storycap http://localhost:9009 -i "some-kind/a-story"', '')
-    .example('storycap http://example.com/your-storybook -e "**/default" -V iPad', '')
-    .example('storycap --serverCmd "start-storybook -p 3000" http://localhost:3000', '');
+    .example('storycapture http://localhost:9009', '')
+    .example('storycapture http://localhost:9009 -V 1024x768 -V 320x568', '')
+    .example('storycapture http://localhost:9009 -i "some-kind/a-story"', '')
+    .example('storycapture http://example.com/your-storybook -e "**/default" -V iPad', '')
+    .example('storycapture --serverCmd "start-storybook -p 3000" http://localhost:3000', '');
   let storybookUrl: string;
 
   const argv = await setting.argv;

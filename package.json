@@ -1,5 +1,5 @@
 {
-  "name": "storycap-root",
+  "name": "storycapture-root",
   "private": true,
   "scripts": {
     "clean": "lerna run clean",
@@ -8,7 +8,7 @@
     "doc:toc": "node scripts/add-toc.js",
     "doc": "yarn doc:clihelp && yarn doc:toc && prettier --write \"*.md\" \"packages/*/*.md\" --loglevel warn",
     "typedoc:build": "lerna run typedoc",
-    "copy:misc:storycap": "cpy README.md CONTRIBUTING.md MIGRATION.md LICENSE packages/storycap",
+    "copy:misc:storycapture": "cpy README.md CONTRIBUTING.md MIGRATION.md LICENSE packages/storycapture",
     "build": "lerna run build && yarn doc && yarn copy:misc",
     "build:pages": "yarn typedoc:build",
     "format": "prettier --write \"packages/**/src/**/*\" \"packages/**/samples/**/*.ts\" \"scripts/**/*\" \"*.md\" \"packages/*/*.md\"",
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reg-viz/storycap.git"
+    "url": "git+https://github.com/huuyafwww/storycapture.git"
   },
   "author": "tsuyoshiwada",
   "contributors": [
@@ -33,9 +33,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/reg-viz/storycap/issues"
+    "url": "https://github.com/huuyafwww/storycapture/issues"
   },
-  "homepage": "https://github.com/reg-viz/storycap#readme",
+  "homepage": "https://github.com/huuyafwww/storycapture#readme",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "8.19.1",
     "@typescript-eslint/parser": "8.19.1",

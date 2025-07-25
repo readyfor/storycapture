@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from './Button';
 import { action } from 'storybook/actions';
 
-import { isScreenshot } from 'storycap';
+import { isScreenshot } from 'storycapture';
 
 export default {
   title: 'Button',
@@ -10,7 +10,7 @@ export default {
 };
 
 export const WithText = {
-  render: () => <Button onClick={action('clicked')}>Hello {isScreenshot() ? 'Storycap' : 'Button'}</Button>,
+  render: () => <Button onClick={action('clicked')}>Hello {isScreenshot() ? 'Storycapture' : 'Button'}</Button>,
 };
 
 export const WithSomeEmoji = {

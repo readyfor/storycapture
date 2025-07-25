@@ -24,7 +24,7 @@ This repository adopts mono-repo structure using Lerna.
 
 Each package has the following role:
 
-- `packages/storycap` : Contains Storycap's main application source code. This packages has a responsibility for capturing screenshots and depends on `storycrawler`.
+- `packages/storycapture` : Contains Storycapture's main application source code. This packages has a responsibility for capturing screenshots and depends on `storycrawler`.
 
 ## Setup
 
