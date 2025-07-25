@@ -25,7 +25,6 @@ This repository adopts mono-repo structure using Lerna.
 Each package has the following role:
 
 - `packages/storycap` : Contains Storycap's main application source code. This packages has a responsibility for capturing screenshots and depends on `storycrawler`.
-- `packages/storycrawler` : Contains basic utilities source to build a crawler for Storybook. This package should have functions to connect Storybook, launch Puppeteer processes, and manage parallel asynchronous tasks.
 
 ## Setup
 
