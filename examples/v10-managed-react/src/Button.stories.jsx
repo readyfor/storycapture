@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from './Button';
 import { action } from 'storybook/actions';
 
-import { isScreenshot } from 'storycapture';
+import { isScreenshot } from '@readyfor/storycapture';
 
 export default {
   title: 'Button',

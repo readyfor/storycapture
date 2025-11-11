@@ -1,35 +1,31 @@
 {
-  "name": "storycapture",
-  "version": "9.0.0",
+  "name": "@readyfor/storycapture",
+  "version": "10.0.0",
   "description": "A Storybook addon, Save the screenshot image of your stories! via puppeteer.",
   "engines": {
     "node": ">=24"
   },
-  "main": "lib/index.js",
+  "type": "module",
+  "main": "lib-esm/index.js",
   "module": "lib-esm/index.js",
   "exports": {
     ".": {
-      "require": "./lib/index.js",
-      "browser": "./lib-esm/index.js",
       "import": "./lib-esm/index.js",
-      "default": "./lib/index.js"
+      "default": "./lib-esm/index.js"
     },
     "./register": "./register.js"
   },
   "sideEffects": [
     "./register.js",
-    "./lib/client/register.js",
     "./lib-esm/client/register.js"
   ],
-  "typings": "lib/index.d.ts",
+  "typings": "lib-esm/index.d.ts",
   "bin": {
-    "storycapture": "lib/node/cli.js"
+    "storycapture": "lib-esm/node/cli.js"
   },
   "scripts": {
-    "clean": "rimraf -g lib lib-esm \"*.tsbuildinfo\"",
-    "build": "yarn build:cjs && yarn build:esm",
-    "build:cjs": "tsc --p tsconfig.build.cjs.json",
-    "build:esm": "tsc --p tsconfig.build.esm.json",
+    "clean": "rimraf -g lib-esm \"*.tsbuildinfo\"",
+    "build": "tsup",
     "prepare": "yarn clean && yarn build",
     "test": "jest",
     "typedoc": "typedoc --out \"../../dist-pages/typedoc/storycapture\" --ignoreCompilerErrors --tsconfig tsconfig.build.json src"
@@ -48,7 +44,6 @@
   },
   "homepage": "https://github.com/huuyafwww/storycapture#readme",
   "files": [
-    "lib",
     "lib-esm",
     "assets",
     "CONTRIBUTING.md",
@@ -80,6 +75,7 @@
     "minimist": "1.2.8",
     "puppeteer": "23.11.1",
     "ts-jest": "29.2.5",
+    "tsup": "^8.5.0",
     "typedoc": "0.27.6",
     "typescript": "5.7.3"
   },
@@ -93,19 +89,26 @@
     "yargs": "^17.0.0"
   },
   "peerDependencies": {
-    "storybook": "^9.0.0"
+    "storybook": "^10.0.0"
   },
   "jest": {
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
       "js"
     ],
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
     "transform": {
       "^.+\\.tsx?$": [
         "ts-jest",
         {
-          "diagnostics": false
+          "diagnostics": false,
+          "useESM": true
         }
       ]
     },
@@ -118,7 +121,7 @@
       "_old/.*",
       "examples/.*",
       "\\.d\\.ts$",
-      "lib/.*"
+      "lib-esm/.*"
     ],
     "testEnvironmentOptions": {
       "url": "http://localhost"

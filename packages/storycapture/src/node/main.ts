@@ -1,10 +1,12 @@
-import { isMatch } from 'nanomatch';
+import nanomatch from 'nanomatch';
 import { StorybookConnection, StoriesBrowser, Story, sleep, ChromiumNotFoundError } from 'storycrawler';
 import { CapturingBrowser } from './capturing-browser';
 import { MainOptions, RunMode } from './types';
 import { FileSystem } from './file';
 import { createScreenshotService } from './screenshot-service';
 import { shardStories, sortStories } from './shard-utilities';
+
+const { isMatch } = nanomatch;
 
 async function detectRunMode(storiesBrowser: StoriesBrowser, opt: MainOptions) {
   // Reuse `storiesBrowser` instance to avoid cost of re-launching another Puppeteer process.

@@ -3,7 +3,7 @@
 [storybook]: https://github.com/storybooks/storybook
 [puppeteer]: https://github.com/GoogleChrome/puppeteer
 
-This package was created to support v9 of storybook with [storycap](https://github.com/reg-viz/storycap).
+This package was created to support v10 of storybook with [storycap](https://github.com/reg-viz/storycap).
 Special thanks to the author of the [storycap](https://github.com/reg-viz/storycap).
 
 [![npm](https://img.shields.io/npm/v/storycapture.svg?style=flat-square)](https://www.npmjs.com/package/storycapture)
@@ -335,9 +335,9 @@ Options:
       --forwardConsoleLogs         Forward in-page console logs to the user's console.        [boolean] [default: false]
       --serverCmd                  Command line to launch Storybook server.                       [string] [default: ""]
       --serverTimeout              Timeout [msec] for starting Storybook server.               [number] [default: 60000]
-      --shard                      The sharding options for this run. In the format <shardNumber>/<totalShards>.
-                                   <shardNumber> is a number between 1 and <totalShards>. <totalShards> is the total
-                                   number of computers working.                                [string] [default: "1/1"]
+      --shard                      The sharding options for this run. In the format <shardNumber>/<totalShards>. <shardN
+                                   umber> is a number between 1 and <totalShards>. <totalShards> is the total number of
+                                   computers working.                                          [string] [default: "1/1"]
       --captureTimeout             Timeout [msec] for capture a story.                          [number] [default: 5000]
       --captureMaxRetryCount       Number of count to retry to capture.                            [number] [default: 3]
       --metricsWatchRetryCount     Number of count to retry until browser metrics stable.       [number] [default: 1000]
@@ -572,9 +572,12 @@ You can change search channel with `--chromiumChannel` option or set executable 
 Storycapture is tested with the followings versions:
 
 - Simple mode:
-  - [x] Storybook v9.x
+  - [x] Storybook v10.x
 - Managed mode:
-  - [x] Storybook v9.x
+  - [x] Storybook v10.x
+
+> [!NOTE]
+> For Storybook v9.x support, please use version 9.0.0 of this package.
 
 See also packages in `examples` directory.
 
