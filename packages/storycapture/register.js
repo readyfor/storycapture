@@ -1,1 +1,1 @@
-module.exports = require('./lib/client/register');
+export * from './lib-esm/client/register.js';
