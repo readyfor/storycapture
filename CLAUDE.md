@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## プロジェクト概要
 
-Storycapture は Storybook v9 のスクリーンショット撮影アドオン。Puppeteer を使用してストーリーのスクリーンショットを自動生成し、ビジュアルリグレッションテストに利用する。
+Storycapture は Storybook v10 のスクリーンショット撮影アドオン。Puppeteer を使用してストーリーのスクリーンショットを自動生成し、ビジュアルリグレッションテストに利用する。
 
 ## プロジェクト構成
 
@@ -13,15 +13,14 @@ Storycapture は Storybook v9 のスクリーンショット撮影アドオン�
 - Lerna + Yarn workspaces を使用したモノレポ
 - メインパッケージ: `packages/storycapture`
 - サンプル実装: `examples/` ディレクトリ配下
-  - `v9-simple-react`: シンプルモード例
-  - `v9-managed-react`: マネージドモード例
-  - `v9-managed-vite5-react`: Vite5 使用のマネージドモード例
+  - `v10-simple-react`: シンプルモード例 (Storybook v10 用)
+  - `v10-managed-react`: マネージドモード例 (Storybook v10 用)
+  - `v10-managed-vite5-react`: Vite5 使用のマネージドモード例 (Storybook v10 用)
 
 ### ビルド出力
 
-- CommonJS: `lib/` (require 用)
-- ES Modules: `lib-esm/` (import/browser 用)
-- 型定義: `lib/index.d.ts`
+- ES Modules (ESM-only): `lib-esm/` (Storybook 10 は ESM-only のため)
+- 型定義: `lib-esm/index.d.ts`
 
 ## コマンド
 
@@ -32,9 +31,8 @@ Storycapture は Storybook v9 のスクリーンショット撮影アドオン�
 yarn build
 
 # 個別パッケージのビルド (packages/storycapture で実行)
-yarn build          # CJS と ESM 両方
-yarn build:cjs      # CommonJS のみ
-yarn build:esm      # ES Modules のみ
+yarn build          # ESM ビルド
+yarn build:esm      # ES Modules
 
 # クリーンビルド
 yarn clean
@@ -139,10 +137,10 @@ yarn bootstrap
 ## TypeScript 設定
 
 - Target: ES2019
-- Module: CommonJS (CJS ビルド), ES2015 (ESM ビルド)
+- Module: ESNext (ESM ビルド)
 - Strict mode 有効
 - `baseUrl`: `./packages`
-- 出力先は `tsconfig.build.cjs.json` と `tsconfig.build.esm.json` で個別管理
+- 出力先は `tsconfig.build.esm.json` で管理
 
 ## コーディング規約
 
@@ -187,5 +185,6 @@ yarn bootstrap
 ## 注意点
 
 - Node 24 以降が必要
-- Storybook v9 専用 (v8 以前は非対応)
+- Storybook v10 専用 (v9 以前のサポートは version 9.0.0 を使用)
+- Storybook v10 は ESM-only のため、このパッケージも ESM-only で提供
 - Chromium の探索順序: Puppeteer → Canary → Stable (CLI オプションで変更可能)
