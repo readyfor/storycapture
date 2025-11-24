@@ -13,11 +13,11 @@
       "import": "./lib-esm/index.js",
       "default": "./lib-esm/index.js"
     },
-    "./register": "./register.js"
+    "./manager": "./manager.js"
   },
   "sideEffects": [
-    "./register.js",
-    "./lib-esm/client/register.js"
+    "./manager.js",
+    "./lib-esm/client/manager.js"
   ],
   "typings": "lib-esm/index.d.ts",
   "bin": {
@@ -51,7 +51,7 @@
     "README.md",
     "LICENSE",
     "package.json",
-    "register.js"
+    "manager.js"
   ],
   "keywords": [
     "storybook",

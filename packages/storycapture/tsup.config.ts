@@ -4,7 +4,7 @@ export default defineConfig({
   entry: {
     index: 'src/index.ts',
     'node/cli': 'src/node/cli.ts',
-    'client/register': 'src/client/register.ts',
+    'client/manager': 'src/client/manager.ts',
   },
   format: ['esm'],
   dts: {
