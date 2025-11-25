@@ -3,7 +3,6 @@
   "private": true,
   "scripts": {
     "clean": "lerna run clean",
-    "bootstrap": "lerna bootstrap",
     "doc:clihelp": "node scripts/cli-help.js",
     "doc:toc": "node scripts/add-toc.js",
     "doc": "yarn doc:clihelp && yarn doc:toc && prettier --write \"*.md\" --loglevel warn",
