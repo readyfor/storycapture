@@ -335,9 +335,9 @@ Options:
       --forwardConsoleLogs         Forward in-page console logs to the user's console.        [boolean] [default: false]
       --serverCmd                  Command line to launch Storybook server.                       [string] [default: ""]
       --serverTimeout              Timeout [msec] for starting Storybook server.               [number] [default: 60000]
-      --shard                      The sharding options for this run. In the format <shardNumber>/<totalShards>. <shardN
-                                   umber> is a number between 1 and <totalShards>. <totalShards> is the total number of
-                                   computers working.                                          [string] [default: "1/1"]
+      --shard                      The sharding options for this run. In the format <shardNumber>/<totalShards>.
+                                   <shardNumber> is a number between 1 and <totalShards>. <totalShards> is the total
+                                   number of computers working.                                [string] [default: "1/1"]
       --captureTimeout             Timeout [msec] for capture a story.                          [number] [default: 5000]
       --captureMaxRetryCount       Number of count to retry to capture.                            [number] [default: 3]
       --metricsWatchRetryCount     Number of count to retry until browser metrics stable.       [number] [default: 1000]
