@@ -32,7 +32,7 @@ And edit SB addons installation:
 /* .storybook/addons.js */
 
 //import 'storybook-chrome-screenshot/register';
-import 'storycapture/register';
+import 'storycapture/manager';
 ```
 
 ### Replace decorators
@@ -184,7 +184,7 @@ You had the following if you use zisui managed mode.
 ```js
 /* .storybook/addons.js */
 
-import 'zisui/register';
+import 'zisui/manager';
 ```
 
 You should replace it:
@@ -192,7 +192,7 @@ You should replace it:
 ```js
 /* .storybook/addons.js */
 
-import 'storycapture/register';
+import 'storycapture/manager';
 ```
 
 And you should edit `.storybook/config.js`:

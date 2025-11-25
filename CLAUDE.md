@@ -110,7 +110,7 @@ yarn bootstrap
 #### クライアント側 (`src/client/`)
 
 - `with-screenshot.ts`: Storybook デコレーター `withScreenshot` の実装
-- `register.ts`: Storybook アドオン登録
+- `manager.ts`: Storybook アドオン登録
 - `trigger-screenshot.ts`: ブラウザ内でスクリーンショット撮影をトリガー
 - `is-screenshot.ts`: Storycapture 実行中かを判定する `isScreenshot()` 関数
 
