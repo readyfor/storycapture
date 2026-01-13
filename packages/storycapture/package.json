@@ -32,17 +32,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/huuyafwww/storycapture.git"
+    "url": "git+https://github.com/readyfor/storycapture.git"
   },
-  "author": "tsuyoshiwada",
-  "contributors": [
-    "Yosuke Kurami"
-  ],
+  "author": "readyfor",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/huuyafwww/storycapture/issues"
+    "url": "https://github.com/readyfor/storycapture/issues"
   },
-  "homepage": "https://github.com/huuyafwww/storycapture#readme",
+  "homepage": "https://github.com/readyfor/storycapture#readme",
   "files": [
     "lib-esm",
     "assets",
